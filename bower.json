@@ -1,0 +1,21 @@
+{
+  "author": "Tommy Tang",
+  "name": "sails-auth",
+  "version": "0.0.1",
+  "homepage": "https://github.com/twhtanghk/sails-auth",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/twhtanghk/sails-auth.git"
+  },
+  "main": "./src/http-auth-interceptor.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.2"
+  }
+}

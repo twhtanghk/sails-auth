@@ -4,7 +4,7 @@ for AngularJS
 -------------
 
 
-sails-auth is $http or $sailsSocket interceptor derived from [angular-http-auth](https://github.com/witoldsz/angular-http-auth.
+sails-auth is $http or $sailsSocket interceptor derived from [angular-http-auth](https://github.com/witoldsz/angular-http-auth).
 This is the implementation of the concept described in
 [Authentication in AngularJS (or similar) based application](http://www.espeo.pl/1-authentication-in-angularjs-application/).
 
@@ -26,9 +26,10 @@ Manual
 
 This module installs $http and $sailsSocket interceptor and provides the `authService`.
 
-The $http and $sailsSocket interceptor does the following:
-the configuration object (this is the requested URL, payload and parameters)
-of every HTTP 401 response is buffered and everytime it happens, the
+The $http and $sailsSocket interceptor work as follows:
+
+The configuration object (this is the requested URL, payload and parameters)
+of every HTTP 401 response via $http or $sailsSocket is buffered and everytime it happens, the
 `event:auth-loginRequired` message is broadcasted from $rootScope.
 
 The `authService` has only one method: #loginConfirmed().

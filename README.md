@@ -21,6 +21,10 @@ Usage
 - Install via bower: `bower install --save sails-auth`
 - Include as a dependency in your app: `angular.module('myApp', ['http-auth-interceptor'])`
 
+Demo
+====
+Visit http://mob.myvnc.com/util.auth/io.html or http://mob.myvnc.com/util.auth/rest.html for demo of io or rest interceptor. 
+
 Manual
 ------
 

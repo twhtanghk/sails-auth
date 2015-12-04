@@ -23,7 +23,7 @@ Usage
 
 Demo
 ====
-Visit http://mob.myvnc.com/util.auth/io.html or http://mob.myvnc.com/util.auth/rest.html for demo of io or rest interceptor. 
+Visit https://mob.myvnc.com/util.auth/io.html or https://mob.myvnc.com/util.auth/rest.html for demo of io or rest interceptor. 
 
 Manual
 ------

@@ -1,3 +1,5 @@
+require 'angularSails'
+
 ###
 $http interceptor.
 On 401 response (without 'ignoreAuthModule' option) stores the request

@@ -7,7 +7,7 @@ and broadcasts 'event:auth-loginRequired'.
 On 403 response (without 'ignoreAuthModule' option) discards the request
 and broadcasts 'event:auth-forbidden'.
 ###
-authInterceptor = ($injector, $rootScope, $log, $q, httpBuffer, transport) ->
+authInterceptor = ($injector, $rootScope, $q, httpBuffer, transport) ->
 	$transport = null
 
 	responseError: (rejection) ->
@@ -22,8 +22,6 @@ authInterceptor = ($injector, $rootScope, $log, $q, httpBuffer, transport) ->
 					return deferred.promise
 				when 403
 					$rootScope.$broadcast('event:auth-forbidden', rejection)
-				else
-					$log.error rejection
 
 		# otherwise, default behaviour
 		return $q.reject(rejection)
@@ -56,14 +54,14 @@ angular.module 'http-auth-interceptor', ['http-auth-interceptor-buffer', 'sails.
 			$rootScope.$broadcast('event:auth-loginCancelled', data)
 
 	.config ($httpProvider) ->
-		interceptor = ($injector, $rootScope, $log, $q, httpBuffer) ->
-			authInterceptor($injector, $rootScope, $log, $q, httpBuffer, '$http')
-		$httpProvider?.interceptors.push ['$injector', '$rootScope', '$log', '$q', 'httpBuffer', interceptor]
+		interceptor = ($injector, $rootScope, $q, httpBuffer) ->
+			authInterceptor($injector, $rootScope, $q, httpBuffer, '$http')
+		$httpProvider?.interceptors.push ['$injector', '$rootScope', '$q', 'httpBuffer', interceptor]
 
 	.config ($sailsSocketProvider) ->
-		interceptor = ($injector, $rootScope, $log, $q, httpBuffer) ->
-			authInterceptor($injector, $rootScope, $log, $q, httpBuffer, '$sailsSocket')
-		$sailsSocketProvider?.interceptors.push ['$injector', '$rootScope', '$log', '$q', 'httpBuffer', interceptor]
+		interceptor = ($injector, $rootScope, $q, httpBuffer) ->
+			authInterceptor($injector, $rootScope, $q, httpBuffer, '$sailsSocket')
+		$sailsSocketProvider?.interceptors.push ['$injector', '$rootScope', '$q', 'httpBuffer', interceptor]
 
 	# define sails socket backend setting and initialize the backend
 	.config ($provide) ->

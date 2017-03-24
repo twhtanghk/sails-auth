@@ -1,4 +1,4 @@
-require 'angularSails'
+require 'angularsails/dist/ngsails.io'
 
 ###
 $http interceptor.
